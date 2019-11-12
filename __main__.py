@@ -1,0 +1,44 @@
+from sys import argv
+from sys import exit
+import csv
+from validator import validator
+import fileManager
+
+
+if __name__ == "__main__":
+
+    script, score_file = argv
+    if argv != None:
+
+        csv.register_dialect('scores', delimiter = ',', skipinitialspace = True)
+
+        if validator.validate_path(score_file) and validator.validate_format(score_file):
+
+            confirm = input("Use the provided path? y/n\n")
+
+            if 'n' in confirm or 'N' in confirm:
+
+                print("Exiting...")
+                exit(0)
+
+            elif 'y' in confirm or 'Y' in confirm:
+
+                with open('pathname', 'w') as pathfile:
+                    pathfile.write(score_file)
+                    print('Successfully uploaded path.')
+                    exit(0)
+        else:
+            print("Please, provide a valid file path.")
+            exit(0)
+    else:
+        pass
+        #validpath = validator.validate_path(score_file)
+        #validformat = validator.validate_format(score_file)
+    
+    #with open(score_file, 'r') as csvFile:
+
+    #if score_file == None:
+     
+    #    exit(0)
+    #else:
+    #    with open()
