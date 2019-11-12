@@ -1,14 +1,14 @@
 from sys import argv
 from sys import exit
-import csv
+#import csv
 from validator import validator
-import fileManager
+from fileManager import fileManager
 
 
 if __name__ == "__main__":
 
-    script, score_file = argv
-    if argv != None:
+    if len(argv) > 1:
+        script, score_file = argv
 
         csv.register_dialect('scores', delimiter = ',', skipinitialspace = True)
 
@@ -30,15 +30,10 @@ if __name__ == "__main__":
         else:
             print("Please, provide a valid file path.")
             exit(0)
-    else:
-        pass
-        #validpath = validator.validate_path(score_file)
-        #validformat = validator.validate_format(score_file)
+    elif len(argv) == 1:
+        path = fileManager.get_path()
+        with open(path, 'r') as scores:
+            fileManager.parse_file(scores)
+            
     
-    #with open(score_file, 'r') as csvFile:
 
-    #if score_file == None:
-     
-    #    exit(0)
-    #else:
-    #    with open()
