@@ -10,7 +10,7 @@ if __name__ == "__main__":
     if len(argv) > 1:
         script, score_file = argv
 
-        csv.register_dialect('scores', delimiter = ',', skipinitialspace = True)
+        #csv.register_dialect('scores', delimiter = ',', skipinitialspace = True)
 
         if validator.validate_path(score_file) and validator.validate_format(score_file):
 
@@ -32,8 +32,9 @@ if __name__ == "__main__":
             exit(0)
     elif len(argv) == 1:
         path = fileManager.get_path()
-        with open(path, 'r') as scores:
-            fileManager.parse_file(scores)
+        lista = fileManager.parse_file(path)
+        for elmt in lista:
+            print(lista)
             
     
 
