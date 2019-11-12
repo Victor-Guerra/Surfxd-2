@@ -6,6 +6,7 @@ class validator:
 
     @staticmethod
     def validate_path(path):
+        """Checks the existence of the provided file path"""
         try:
             faile = open(path)
             faile.close()
@@ -17,6 +18,7 @@ class validator:
 
     @staticmethod
     def validate_format(path):
+        """Checks if the provided file path is actually\nin a csv format"""
         if ".csv" in path:
             return True
         else:

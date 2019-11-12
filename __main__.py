@@ -33,8 +33,10 @@ if __name__ == "__main__":
     elif len(argv) == 1:
         path = fileManager.get_path()
         lista = fileManager.parse_file(path)
-        for elmt in lista:
-            print(lista)
-            
+        fileManager.sort_scores(lista)
+
+        print(lista[-1]._name + ',' + lista[-1]._score)
+        print(lista[0]._name + ',' + lista[0]._score)
+        print(lista[1]._name + ',' + lista[1]._score)
     
 
